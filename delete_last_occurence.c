@@ -68,18 +68,18 @@ int main(){
 	int count = 0;
 	struct node *root = head, *prev = NULL, *node_delete = NULL, *node_delete_prev = NULL;
 	while(root != NULL){
-		  if(root->data == key){
-			 node_delete = root;
-			 node_delete_prev = prev;
-		  }
+	      if(root->data == key){
+	         node_delete = root;
+	         node_delete_prev = prev;
+	      }
 
-		  prev = root;
-		  root = root->next;
-	}
+	      prev = root;
+	      root = root->next;
+     }
 
-	if(node_delete != NULL){
-		node_delete_prev->next = node_delete->next;
-		free(node_delete);
+    if(node_delete != NULL){
+	   node_delete_prev->next = node_delete->next;
+	   free(node_delete);
 	}
 	printf("After deletion\n");
 	printList(head);
