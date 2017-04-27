@@ -69,16 +69,16 @@ struct Node * SortedMerge(struct Node *a, struct Node *b){
 	} 
 
 	if(a == NULL){
-		return b;
+	   return b;
 	}
 
 	if(b == NULL){
-		return a;
+	   return a;
 	}
 	
 	while(a != NULL && b != NULL){
 
-		if(a->key < b->key){
+	    if(a->key < b->key){
 		   struct Node *temp = a->next;
 		   a->next = res;
 		   res = a;
@@ -104,10 +104,10 @@ struct Node * SortedMerge(struct Node *a, struct Node *b){
 	// If 'b' hasnt finished and 'a' has finished then add all b into the front 
 	// of a
 	while(b != NULL){
-		struct Node *b_temp = b->next;
-	    b->next = res;
-		res = b;
-	    b = b_temp;
+		  struct Node *b_temp = b->next;
+	      b->next = res;
+		  res = b;
+	      b = b_temp;
 	}
 
 	return res;
