@@ -9,7 +9,6 @@ struct node {
 
 void removedup(struct node *head){
 
-
 	struct node *current = head;
 	struct node * next_next;
 
@@ -30,8 +29,7 @@ void removedup(struct node *head){
 void push(struct node** head_ref, int new_data)
 {
     /* allocate node */
-    struct node* new_node =
-            (struct node*) malloc(sizeof(struct node));
+    struct node* new_node =(struct node*)malloc(sizeof(struct node));
              
     /* put in the data  */
     new_node->data  = new_data;
