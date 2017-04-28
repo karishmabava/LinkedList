@@ -7,34 +7,25 @@ struct node {
 	struct node * next;
 };
 
-
-
 void removedup(struct node *head){
 
 
 	struct node *current = head;
-
 	struct node * next_next;
 
 	if (current == NULL)
-		return;
+	    return;
 
 	while(current->next != NULL){
-
-
-		if (current->data== current->next->data){
-			next_next=current->next->next;
-			free(current->next);
-			current->next=next_next;
-		}
-		else{
-
-			current=current->next;
-		}
+	   if (current->data== current->next->data){
+	       next_next=current->next->next;
+	       free(current->next);
+	       current->next=next_next;
+	   } else{
+	       current=current->next;
+	   }
 	}
-
 }
-
 
 void push(struct node** head_ref, int new_data)
 {
@@ -62,8 +53,6 @@ void printList(struct node *node)
     }
 } 
 
-
-
 int main(){
 
 /* Start with the empty list */
@@ -86,9 +75,7 @@ int main(){
  
     printf("\n Linked list after duplicate removal  ");         
     printList(head);           
-	printf("\n\n"); 
+    printf("\n\n"); 
    
-    return 0;	
-
-
+    return 0;
 }
