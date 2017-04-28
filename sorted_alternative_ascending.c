@@ -1,3 +1,16 @@
+/* Question: Sort a linked list that is sorted alternating ascending and descending orders?
+Given a Linked List. The Linked List is in alternating ascending and descending orders. Sort the list efficiently.
+
+Example:
+
+Input List:   10->40->53->30->67->12->89->NULL
+Output List:  10->12->30->43->53->67->89->NULL
+*/
+
+// Solution: Split the list, store it in odd and even, reverse the decreasing order
+// list and merge both of them
+
+// Complexity O(n)
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -97,10 +110,10 @@ struct Node * SortedMerge(struct Node *a, struct Node *b){
 		   res = a;
 		   a = temp;
 		} else {
-			struct Node *temp = b->next;
-			b->next = res;
-			res = b;
-			b = temp;
+		   struct Node *temp = b->next;
+		   b->next = res;
+		   res = b;
+		   b = temp;
 		}
 
 	}
@@ -140,22 +153,22 @@ int main()
     printlist(head);
  	struct Node *even=NULL, *odd=NULL;
 	splitLinkedListOdd(head, &odd, &even);	
-	printf("Odd list\n");
-	printlist(odd);
-	printf("\n Even List \n");
-	printlist(even);
+	
+    printf("Odd list\n");
+    printlist(odd);
+	
+    printf("\n Even List \n");
+    printlist(even);
 	printf("\n");
-	even = reverse(even);
+	
+    even = reverse(even);
 	printf("After even reversed\n");
 	printlist(even);
-    /*sort(&head);*/
-	head = SortedMerge(odd, even);
-	printf("\n After Merge \n");
-	printlist(head);  
-	/*
-    cout << "Sorted Linked List is " << endl;
-    printlist(head);
- 	*/
+	
+    head = SortedMerge(odd, even);
+    printf("\n After Merge \n");
+    printlist(head);  
+    
     return 0;
 }
 
